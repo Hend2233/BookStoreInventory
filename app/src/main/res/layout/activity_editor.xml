@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.tito.bookstoreapp.EditorActivity">
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+    <TextView
+            android:text="@string/book_title"
+            android:textSize="@dimen/size_15_sp"
+            android:textColor="#000"
+            android:layout_margin="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <EditText
+            android:hint="@string/book_title"
+            android:id="@+id/book_title"
+            android:inputType="text"
+            android:layout_marginTop="@dimen/size_15"
+            android:layout_marginBottom="@dimen/size_15"
+            android:layout_marginRight="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="@string/book_price"
+                android:textSize="@dimen/size_15_sp"
+                android:textColor="#000"
+                android:layout_margin="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:hint="@string/book_price"
+                android:id="@+id/book_price"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginBottom="@dimen/size_15"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="@string/quantity"
+                android:textSize="@dimen/size_15_sp"
+                android:textColor="#000"
+                android:layout_margin="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:hint="@string/quantity"
+                android:id="@+id/quantity"
+                android:inputType="number"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginBottom="@dimen/size_15"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="@string/supplier_name"
+                android:textSize="@dimen/size_15_sp"
+                android:textColor="#000"
+                android:layout_margin="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:id="@+id/supplier_name"
+                android:inputType="textCapWords"
+                android:hint="@string/supplier_name"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginBottom="@dimen/size_15"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:text="@string/supplier_phone"
+                android:textSize="@dimen/size_15_sp"
+                android:textColor="#000"
+                android:layout_margin="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <EditText
+                android:hint="@string/supplier_phone"
+                android:id="@+id/supplier_phone"
+                android:inputType="phone"
+                android:layout_marginTop="@dimen/size_15"
+                android:layout_marginBottom="@dimen/size_15"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <Button
+            android:text="done"
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</LinearLayout>
