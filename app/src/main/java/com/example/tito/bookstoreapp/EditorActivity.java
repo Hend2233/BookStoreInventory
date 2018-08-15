@@ -4,8 +4,8 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.example.tito.bookstoreapp.data.BookContract.BooKInventoryEntry;
@@ -14,7 +14,6 @@ import com.example.tito.bookstoreapp.data.BookDbHelper;
 public class EditorActivity extends AppCompatActivity {
 
     private EditText bookName, bookPrice, quantity, supplierName, supplierPhone;
-    Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +25,9 @@ public class EditorActivity extends AppCompatActivity {
         quantity = (EditText) findViewById(R.id.quantity);
         supplierName = (EditText) findViewById(R.id.supplier_name);
         supplierPhone = (EditText) findViewById(R.id.supplier_phone);
-        doneButton = (Button) findViewById(R.id.done);
-
-        doneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insertInfo();
-                finish();
-            }
-        });
     }
 
-    private void insertInfo() {
+    private void insertData() {
 
         String bookTitleInfo = bookName.getText().toString();
         String bookPriceInfo = bookPrice.getText().toString();
@@ -45,9 +35,9 @@ public class EditorActivity extends AppCompatActivity {
         String supplierNameInfo = supplierName.getText().toString();
         String supplierPhoneInfo = supplierPhone.getText().toString();
 
-        float bookPrice = Integer.parseInt(bookPriceInfo);
+        double bookPrice = Double.parseDouble(bookPriceInfo);
         int bookQuantity = Integer.parseInt(quantityInfo);
-        long supplierNumber = Integer.parseInt(supplierPhoneInfo);
+        long supplierNumber = Long.parseLong(supplierPhoneInfo);
 
         BookDbHelper bookDbHelper = new BookDbHelper(this);
 
@@ -68,6 +58,20 @@ public class EditorActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "There is a new book " + newRow, Toast.LENGTH_SHORT).show();
         }
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.save_icon:
+                insertData();
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

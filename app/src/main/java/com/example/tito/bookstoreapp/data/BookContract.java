@@ -4,7 +4,8 @@ import android.provider.BaseColumns;
 
 public final class BookContract {
 
-    private BookContract() {}
+    private BookContract() {
+    }
 
     public static final class BooKInventoryEntry implements BaseColumns {
 
@@ -21,7 +22,6 @@ public final class BookContract {
         public static final String SUPPLIER_NAME = "supplier_name";
 
         public static final String SUPPLIER_PHONE = "supplier_phone";
-
 
     }
 }

@@ -18,15 +18,15 @@ public class BookDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-            String BOOK_INVENTORY_TABLE = "CREATE TABLE " + BooKInventoryEntry.TABLE_NAME + " ("
-            + BooKInventoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + BooKInventoryEntry.BOOK_NAME_COLUMN + " TEXT NOT NULL, "
-            + BooKInventoryEntry.BOOK_PRICE_COLUMN + " INTEGER, "
-            + BooKInventoryEntry.BOOK_QUANTITY_COLUMN + " INTEGER, "
-            + BooKInventoryEntry.SUPPLIER_NAME + " TEXT NOT NULL, "
-            + BooKInventoryEntry.SUPPLIER_PHONE + " INTEGER NOT NULL);";
+        String BOOK_INVENTORY_TABLE = "CREATE TABLE " + BooKInventoryEntry.TABLE_NAME + " ("
+                + BooKInventoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + BooKInventoryEntry.BOOK_NAME_COLUMN + " TEXT NOT NULL, "
+                + BooKInventoryEntry.BOOK_PRICE_COLUMN + " BLOB, "
+                + BooKInventoryEntry.BOOK_QUANTITY_COLUMN + " INTEGER, "
+                + BooKInventoryEntry.SUPPLIER_NAME + " TEXT NOT NULL, "
+                + BooKInventoryEntry.SUPPLIER_PHONE + " BLOB NOT NULL);";
 
-            db.execSQL(BOOK_INVENTORY_TABLE);
+        db.execSQL(BOOK_INVENTORY_TABLE);
     }
 
     @Override
