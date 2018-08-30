@@ -75,7 +75,19 @@
                 android:layout_marginLeft="@dimen/size_20"
                 android:layout_alignParentLeft="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" android:id="@+id/textView"/>
+
+        <Button android:id="@+id/increase"
+                android:text="+"
+                android:textSize="@dimen/size_15_sp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView"
+                android:layout_marginLeft="59dp"
+                android:layout_marginStart="59dp"/>
 
         <EditText
                 android:hint="@string/quantity"
@@ -83,10 +95,21 @@
                 android:inputType="number"
                 android:layout_marginTop="@dimen/size_15"
                 android:layout_marginBottom="@dimen/size_15"
-                android:layout_marginRight="@dimen/size_20"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_width="@dimen/size_30"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/increase"
+        />
+
+        <Button android:id="@+id/decrease"
+                android:text="-"
+                android:textSize="@dimen/size_15_sp"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/quantity"
+                android:layout_alignBottom="@+id/quantity"
+                android:layout_toRightOf="@id/quantity"
+                android:layout_marginLeft="@dimen/size_15"
+                android:layout_marginRight="@dimen/size_15"/>
 
     </RelativeLayout>
 

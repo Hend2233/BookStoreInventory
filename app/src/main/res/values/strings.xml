@@ -9,4 +9,10 @@
     <string name="supplier_name">Supplier Name</string>
     <string name="supplier_phone">Supplier Phone</string>
     <string name="done">done</string>
+    <string name="no_books">There is no "\"Books\" for now.\n Start adding some Books</string>
+    <string name="book_details">Book\'s Details</string>
+    <string name="failed">Insert Failed</string>
+    <string name="sale">sale</string>
+    <string name="edit">edit</string>
+    <string name="edit_a_book">Edit a book</string>
 </resources>

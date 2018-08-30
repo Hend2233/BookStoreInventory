@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/book_title_item"
+            android:textSize="@dimen/size_20_sp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            android:fontFamily="sans-serif"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Book Title"
+            tools:targetApi="jelly_bean"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/book_quantity"
+                android:textSize="@dimen/size_15_sp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/darker_gray"
+                android:fontFamily="sans-serif"
+                android:layout_marginRight="@dimen/size_20"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Book Quantity"
+                tools:targetApi="jelly_bean"/>
+
+        <TextView
+                android:id="@+id/book_price_item"
+                android:textSize="@dimen/size_15_sp"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/darker_gray"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Book Price"
+                tools:targetApi="jelly_bean"/>
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:textColor="#FFF"
+                android:layout_marginLeft="@dimen/size_20"
+                android:layout_alignParentLeft="true"
+                android:background="#080"
+                android:id="@+id/sale_btn"
+                android:text="@string/sale"
+                android:padding="@dimen/size_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:focusable="false"
+                android:textColor="#FFF"
+                android:layout_marginRight="@dimen/size_20"
+                android:layout_alignParentRight="true"
+                android:background="#080"
+                android:id="@+id/edit_btn"
+                android:text="@string/edit"
+                android:padding="@dimen/size_15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
