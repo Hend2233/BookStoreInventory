@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.util.Log;
 import com.example.tito.bookstoreapp.data.BookContract.BooKInventoryEntry;
 
-
 public class BookProvider extends ContentProvider {
 
     private static final int BOOKS = 100;
@@ -33,7 +32,6 @@ public class BookProvider extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteDatabase database = bookDbHelper.getReadableDatabase();
-
         Cursor cursor;
 
         int match = uriMatcher.match(uri);

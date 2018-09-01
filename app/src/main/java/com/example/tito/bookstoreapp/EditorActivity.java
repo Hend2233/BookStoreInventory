@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.tito.bookstoreapp.data.BookContract.BooKInventoryEntry;
 
@@ -20,12 +23,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     public EditText bookName;
     public EditText bookPrice;
-    public EditText quantity;
+    public TextView quantity;
     public EditText supplierName;
     public EditText supplierPhone;
     private static final int BOOK_LOADER = 0;
     Uri currentBookUri;
-    Cursor cursor;
+    private Button increaseBtn, decreaseBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         currentBookUri = intent.getData();
 
-        if (currentBookUri == null){
+        if (currentBookUri == null) {
             setTitle(getString(R.string.add_a_book));
         } else {
             setTitle(getString(R.string.edit_a_book));
@@ -46,9 +49,37 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         bookName = (EditText) findViewById(R.id.book_title);
         bookPrice = (EditText) findViewById(R.id.book_price);
-        quantity = (EditText) findViewById(R.id.quantity);
+        quantity = (TextView) findViewById(R.id.quantity);
         supplierName = (EditText) findViewById(R.id.supplier_name);
         supplierPhone = (EditText) findViewById(R.id.supplier_phone);
+        increaseBtn = (Button) findViewById(R.id.increase);
+        decreaseBtn = (Button) findViewById(R.id.decrease);
+
+        increaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantityValue = Integer.valueOf(quantity.getText().toString());
+                if (quantityValue >= 0) {
+                    quantityValue++;
+                }
+                quantity.setText(String.valueOf(quantityValue));
+            }
+        });
+
+        decreaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantityValue = Integer.valueOf(quantity.getText().toString());
+
+                if (quantityValue > 0 && quantityValue != -1) {
+                    quantityValue--;
+                } else {
+                    Toast.makeText(EditorActivity.this, R.string.no_0s_value, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                quantity.setText(String.valueOf(quantityValue));
+            }
+        });
     }
 
     private void insertData() {
@@ -60,9 +91,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         if (currentBookUri == null && TextUtils.isEmpty(bookTitleInfo)
                 || TextUtils.isEmpty(supplierNameInfo) || TextUtils.isEmpty(supplierPhoneInfo)
-                || TextUtils.isEmpty(bookPriceInfo) || TextUtils.isEmpty(quantityInfo))
-        {
-            Toast.makeText(this, "Complete the book info", Toast.LENGTH_SHORT).show();
+                || TextUtils.isEmpty(bookPriceInfo) || TextUtils.isEmpty(quantityInfo)) {
+            Toast.makeText(this, getString(R.string.complete), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -79,20 +109,20 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             Uri newUri = getContentResolver().insert(BooKInventoryEntry.CONTENT_URI, values);
 
             if (newUri == null) {
-                Toast.makeText(this, "failed",
+                Toast.makeText(this, getString(R.string.failed_insert),
                         Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "successful",
+                Toast.makeText(this, getString(R.string.successful_inserting),
                         Toast.LENGTH_SHORT).show();
             }
         } else {
             int rowsAffected = getContentResolver().update(currentBookUri, values, null, null);
 
             if (rowsAffected == 0) {
-                Toast.makeText(this, "failed",
+                Toast.makeText(this, getString(R.string.update_failed),
                         Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "successful",
+                Toast.makeText(this, getString(R.string.udate_successful),
                         Toast.LENGTH_SHORT).show();
             }
         }
@@ -100,7 +130,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item, menu);
+        getMenuInflater().inflate(R.menu.menu_editor, menu);
         return true;
     }
 
@@ -121,12 +151,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-       String [] projection = {BooKInventoryEntry._ID,
-               BooKInventoryEntry.BOOK_NAME_COLUMN,
-               BooKInventoryEntry.BOOK_PRICE_COLUMN,
-               BooKInventoryEntry.BOOK_QUANTITY_COLUMN,
-               BooKInventoryEntry.SUPPLIER_NAME,
-               BooKInventoryEntry.SUPPLIER_PHONE};
+        String[] projection = {BooKInventoryEntry._ID,
+                BooKInventoryEntry.BOOK_NAME_COLUMN,
+                BooKInventoryEntry.BOOK_PRICE_COLUMN,
+                BooKInventoryEntry.BOOK_QUANTITY_COLUMN,
+                BooKInventoryEntry.SUPPLIER_NAME,
+                BooKInventoryEntry.SUPPLIER_PHONE};
 
         return new CursorLoader(this,
                 currentBookUri,
@@ -137,7 +167,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         if (cursor == null || cursor.getCount() < 1) {
             return;
         }

@@ -1,83 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <TextView
-            android:id="@+id/book_title_item"
-            android:textSize="@dimen/size_20_sp"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#000"
-            android:fontFamily="sans-serif"
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Book Title"
-            tools:targetApi="jelly_bean"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-                android:id="@+id/book_quantity"
-                android:textSize="@dimen/size_15_sp"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@android:color/darker_gray"
-                android:fontFamily="sans-serif"
-                android:layout_marginRight="@dimen/size_20"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
+        <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Book Quantity"
-                tools:targetApi="jelly_bean"/>
+                android:layout_height="wrap_content">
 
-        <TextView
-                android:id="@+id/book_price_item"
-                android:textSize="@dimen/size_15_sp"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@android:color/darker_gray"
-                android:fontFamily="sans-serif"
-                android:layout_marginBottom="5dp"
+            <TextView
+                    android:id="@+id/bookTitle"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#000"
+                    android:text="@string/book_title_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean"/>
+
+            <TextView
+                    android:layout_toRightOf="@id/bookTitle"
+                    android:id="@+id/book_title_item"
+                    android:textSize="@dimen/size_20_sp"
+                    android:lineSpacingExtra="@dimen/dp_5"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#000"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_margin="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Book Title"
+                    tools:targetApi="jelly_bean"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Book Price"
-                tools:targetApi="jelly_bean"/>
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/bookQuantity"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#000"
+                    android:text="@string/book_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean"/>
+
+            <TextView
+                    android:id="@+id/book_quantity"
+                    android:textSize="@dimen/size_15_sp"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#000"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:layout_marginBottom="@dimen/dp_5"
+                    android:layout_width="wrap_content"
+                    android:layout_toRightOf="@id/bookQuantity"
+                    android:layout_height="wrap_content"
+                    tools:text="Book Quantity"
+                    tools:targetApi="jelly_bean"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/bookPrice"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#000"
+                    android:text="@string/book_price_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:targetApi="jelly_bean"/>
+
+            <TextView
+                    android:id="@+id/book_price_item"
+                    android:textSize="@dimen/size_15_sp"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#000"
+                    android:fontFamily="sans-serif"
+                    android:layout_toRightOf="@id/bookPrice"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Book Price"
+                    tools:targetApi="jelly_bean"/>
+        </RelativeLayout>
     </LinearLayout>
 
-    <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+    <Button
+            android:textColor="#FFF"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginRight="@dimen/size_15"
+            android:focusable="false"
+            android:background="@color/colorPrimary"
+            android:id="@+id/sale_btn"
+            android:text="@string/sale"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_40"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
 
-        <TextView
-                android:textColor="#FFF"
-                android:layout_marginLeft="@dimen/size_20"
-                android:layout_alignParentLeft="true"
-                android:background="#080"
-                android:id="@+id/sale_btn"
-                android:text="@string/sale"
-                android:padding="@dimen/size_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+    <Button
+            android:focusable="false"
+            android:textColor="#FFF"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/sale_btn"
+            android:background="@color/colorPrimary"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:id="@+id/edit_btn"
+            android:text="@string/edit"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_40"/>
 
-        <Button
-                android:focusable="false"
-                android:textColor="#FFF"
-                android:layout_marginRight="@dimen/size_20"
-                android:layout_alignParentRight="true"
-                android:background="#080"
-                android:id="@+id/edit_btn"
-                android:text="@string/edit"
-                android:padding="@dimen/size_15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-    </RelativeLayout>
-
-
-
-</LinearLayout>
+</RelativeLayout>

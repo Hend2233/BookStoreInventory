@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
+        android:background="#CFD8DC"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.tito.bookstoreapp.EditorActivity">
@@ -71,45 +72,49 @@
                 android:text="@string/quantity"
                 android:textSize="@dimen/size_15_sp"
                 android:textColor="#000"
-                android:layout_marginTop="@dimen/size_30"
+                android:layout_marginTop="@dimen/size_20"
                 android:layout_marginLeft="@dimen/size_20"
                 android:layout_alignParentLeft="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"/>
 
         <Button android:id="@+id/increase"
-                android:text="+"
+                android:text="@string/increase"
+                android:background="@color/colorPrimary"
+                android:textColor="#FFF"
+                android:layout_marginTop="@dimen/dp_10"
                 android:textSize="@dimen/size_15_sp"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView"
-                android:layout_alignBottom="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_marginLeft="59dp"
-                android:layout_marginStart="59dp"/>
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/size_15"
+                android:layout_height="40dp"
+                android:layout_marginRight="@dimen/size_15"/>
 
-        <EditText
-                android:hint="@string/quantity"
+        <TextView
+                android:text="@string/_0"
                 android:id="@+id/quantity"
-                android:inputType="number"
-                android:layout_marginTop="@dimen/size_15"
+                android:textSize="@dimen/size_15"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginRight="@dimen/dp_5"
                 android:layout_marginBottom="@dimen/size_15"
-                android:layout_width="@dimen/size_30"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/increase"
+                android:layout_toLeftOf="@id/increase"
         />
 
         <Button android:id="@+id/decrease"
-                android:text="-"
+                android:text="@string/decrease"
+                android:textColor="#FFF"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="@dimen/dp_10"
                 android:textSize="@dimen/size_15_sp"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/quantity"
-                android:layout_alignBottom="@+id/quantity"
-                android:layout_toRightOf="@id/quantity"
-                android:layout_marginLeft="@dimen/size_15"
-                android:layout_marginRight="@dimen/size_15"/>
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@id/quantity"
+                android:layout_marginRight="@dimen/size_15"
+                android:layout_marginLeft="@dimen/size_15"/>
 
     </RelativeLayout>
 

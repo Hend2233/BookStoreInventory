@@ -32,7 +32,9 @@ public class BookCursorAdapter extends CursorAdapter {
         TextView title = (TextView) view.findViewById(R.id.book_title_item);
         TextView quantityT = (TextView) view.findViewById(R.id.book_quantity);
         TextView price = (TextView) view.findViewById(R.id.book_price_item);
-        TextView sellButton = (TextView) view.findViewById(R.id.sale_btn);
+        Button saleButton = (Button) view.findViewById(R.id.sale_btn);
+        Button editButton = (Button) view.findViewById(R.id.edit_btn);
+
 
         int bookTitleColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_NAME_COLUMN);
         int bookPriceColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_PRICE_COLUMN);
@@ -50,7 +52,7 @@ public class BookCursorAdapter extends CursorAdapter {
 
         final Uri contentUri = Uri.withAppendedPath(BooKInventoryEntry.CONTENT_URI, Long.toString(currentId));
 
-        sellButton.setOnClickListener(new View.OnClickListener() {
+        saleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView quantityT = (TextView) view.findViewById(R.id.book_quantity);
@@ -58,28 +60,27 @@ public class BookCursorAdapter extends CursorAdapter {
                 int quantity = Integer.valueOf(quantityT.getText().toString());
 
                 if (quantity == 0) {
-                    Toast.makeText(context, "You can't have -1 value", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.no_0s_value, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (quantity > 0) {
-                    quantity = quantity - 1;
+                    quantity--;
                 }
-                // Content Values to update quantity
                 ContentValues values = new ContentValues();
                 values.put(BooKInventoryEntry.BOOK_QUANTITY_COLUMN, quantity);
-                // update the database
+
                 mContext.getContentResolver().update(contentUri, values, null, null);
             }
         });
 
-        Button editButton = (Button) view.findViewById(R.id.edit_btn);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, EditorActivity.class);
                 Uri bookUri = ContentUris.withAppendedId(BooKInventoryEntry.CONTENT_URI, currentId);
                 intent.setData(bookUri);
-                ((Activity) mContext).startActivityForResult(intent, EditorActivity.CONTEXT_INCLUDE_CODE);            }
+                ((Activity) mContext).startActivityForResult(intent, EditorActivity.CONTEXT_INCLUDE_CODE);
+            }
         });
     }
 }
