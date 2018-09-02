@@ -1,229 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
-        android:background="#CFD8DC"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.example.tito.bookstoreapp.DetailsActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#CFD8DC"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tito.bookstoreapp.DetailsActivity">
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bookTitle"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000"
+            android:textSize="@dimen/sp_20"
+            android:text="@string/book_title_"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
 
         <TextView
-                android:id="@+id/bookTitle"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginTop="@dimen/dp_5"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_marginBottom="@dimen/size_20"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000"
-                android:textSize="@dimen/size_20_sp"
-                android:text="@string/book_title_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-        <TextView
-                android:textSize="@dimen/size_20_sp"
-                android:lineSpacingExtra="@dimen/dp_5"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/bookTitle"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginTop="@dimen/dp_5"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_marginBottom="@dimen/size_20"
-                android:id="@+id/book_title"
-                tools:text="@string/book_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
+            android:textSize="@dimen/sp_20"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/bookTitle"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/sp_20"
+            android:id="@+id/book_title"
+            tools:text="@string/book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bookQuantity"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000"
+            android:textSize="@dimen/sp_20"
+            android:text="@string/book_quantity"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:id="@+id/bookQuantity"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginBottom="@dimen/size_20"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000"
-                android:textSize="@dimen/size_20_sp"
-                android:text="@string/book_quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-        <Button android:id="@+id/increase_btn"
-                android:text="@string/increase"
-                android:textColor="#FFF"
-                android:background="@color/colorPrimary"
-                android:textSize="@dimen/size_15_sp"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_10"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_alignParentRight="true"/>
-
-        <TextView
-                android:textSize="@dimen/size_20_sp"
-                android:lineSpacingExtra="@dimen/dp_5"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:layout_marginTop="@dimen/dp_10"
-                android:textColor="#000"
-                android:layout_marginLeft="@dimen/dp_10"
-                android:layout_marginRight="@dimen/dp_10"
-                android:fontFamily="sans-serif-condensed"
-                android:id="@+id/book_quantity"
-                tools:text="@string/book_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"
-                android:layout_toLeftOf="@+id/increase_btn"/>
-
-        <Button android:id="@+id/decrease_btn"
-                android:background="@color/colorPrimary"
-                android:text="@string/decrease"
-                android:textSize="@dimen/size_15_sp"
-                android:layout_width="50dp"
-                android:textColor="#FFF"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/dp_10"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_alignParentTop="true"
-                android:layout_marginBottom="@dimen/dp_5"
-                android:layout_toLeftOf="@+id/book_quantity"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:id="@+id/bookPrice"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginBottom="@dimen/size_20"
-                android:layout_marginLeft="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000"
-                android:textSize="@dimen/size_20_sp"
-                android:text="@string/book_price_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-        <TextView
-                android:textSize="@dimen/size_20_sp"
-                android:lineSpacingExtra="@dimen/dp_5"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/bookPrice"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_marginBottom="@dimen/size_20"
-                android:fontFamily="sans-serif-condensed"
-                android:id="@+id/book_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:id="@+id/supplierName"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginBottom="@dimen/size_20"
-                android:layout_marginLeft="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000"
-                android:textSize="@dimen/size_20_sp"
-                android:text="@string/supplier_name_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-        <TextView
-                android:textSize="@dimen/size_20_sp"
-                android:lineSpacingExtra="@dimen/dp_5"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/supplierName"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_marginBottom="@dimen/size_20"
-                android:id="@+id/supplier_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-                android:id="@+id/supplierPhone"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginBottom="@dimen/size_20"
-                android:layout_marginLeft="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#000"
-                android:textSize="@dimen/size_20_sp"
-                android:text="@string/supplier_phone_"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
-
-        <TextView
-                android:textSize="@dimen/size_20_sp"
-                android:lineSpacingExtra="@dimen/dp_5"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#000"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_marginTop="@dimen/dp_2"
-                android:layout_marginLeft="@dimen/dp_5"
-                android:layout_toRightOf="@id/supplierPhone"
-                android:layout_marginBottom="@dimen/size_20"
-                android:id="@+id/supplier_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:targetApi="jelly_bean"/>
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
 
         <Button
-                android:background="@color/colorPrimary"
-                android:layout_below="@id/supplierPhone"
-                android:text="@string/order"
-                android:textColor="#FFF"
-                android:layout_marginTop="@dimen/dp_50"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="@dimen/size_20"
-                android:id="@+id/contact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/increase_btn"
+            android:text="@string/increase"
+            android:textColor="#FFF"
+            android:background="@color/colorPrimary"
+            android:textSize="@dimen/sp_15"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_alignParentRight="true"/>
 
-        <Button android:id="@+id/delete_btn"
-                android:layout_below="@id/supplierPhone"
-                android:layout_marginTop="@dimen/dp_50"
-                android:background="@color/colorPrimary"
-                android:text="@string/delete"
-                android:textColor="#FFF"
-                android:layout_alignParentRight="true"
-                android:textSize="@dimen/size_15_sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/size_20"/>
+        <TextView
+            android:textSize="@dimen/sp_20"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textColor="#000"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/book_quantity"
+            tools:text="@string/book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"
+            android:layout_toLeftOf="@+id/increase_btn"/>
+
+        <Button
+            android:id="@+id/decrease_btn"
+            android:background="@color/colorPrimary"
+            android:text="@string/decrease"
+            android:textSize="@dimen/sp_15"
+            android:layout_width="50dp"
+            android:textColor="#FFF"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_toLeftOf="@+id/book_quantity"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bookPrice"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginLeft="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000"
+            android:textSize="@dimen/sp_20"
+            android:text="@string/book_price_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+
+        <TextView
+            android:textSize="@dimen/sp_20"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/bookPrice"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/sp_20"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/book_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/supplierName"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginLeft="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000"
+            android:textSize="@dimen/sp_20"
+            android:text="@string/supplier_name_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+
+        <TextView
+            android:textSize="@dimen/sp_20"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/supplierName"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:id="@+id/supplier_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/supplierPhone"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginLeft="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000"
+            android:textSize="@dimen/sp_20"
+            android:text="@string/supplier_phone_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+
+        <TextView
+            android:textSize="@dimen/sp_20"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#000"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="@dimen/dp_2"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_toRightOf="@id/supplierPhone"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:id="@+id/supplier_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:targetApi="jelly_bean"/>
+
+        <Button
+            android:background="@color/colorPrimary"
+            android:layout_below="@id/supplierPhone"
+            android:text="@string/order"
+            android:textColor="#FFF"
+            android:layout_marginTop="@dimen/dp_50"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_below="@id/supplierPhone"
+            android:layout_marginTop="@dimen/dp_50"
+            android:background="@color/colorPrimary"
+            android:text="@string/delete"
+            android:textColor="#FFF"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/sp_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_20"/>
 
     </RelativeLayout>
 </LinearLayout>

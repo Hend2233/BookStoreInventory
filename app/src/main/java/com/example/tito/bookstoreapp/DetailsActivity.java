@@ -138,16 +138,9 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {BooKInventoryEntry._ID,
-                BooKInventoryEntry.BOOK_NAME_COLUMN,
-                BooKInventoryEntry.BOOK_PRICE_COLUMN,
-                BooKInventoryEntry.BOOK_QUANTITY_COLUMN,
-                BooKInventoryEntry.SUPPLIER_NAME,
-                BooKInventoryEntry.SUPPLIER_PHONE};
-
         return new CursorLoader(this,
                 currentBookUri,
-                projection,
+                null,
                 null,
                 null,
                 null);

@@ -82,11 +82,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     private void insertData() {
-        String bookTitleInfo = bookName.getText().toString();
-        String bookPriceInfo = bookPrice.getText().toString();
-        String quantityInfo = quantity.getText().toString();
-        String supplierNameInfo = supplierName.getText().toString();
-        String supplierPhoneInfo = supplierPhone.getText().toString();
+        String bookTitleInfo = bookName.getText().toString().trim();
+        String bookPriceInfo = bookPrice.getText().toString().trim();
+        String quantityInfo = quantity.getText().toString().trim();
+        String supplierNameInfo = supplierName.getText().toString().trim();
+        String supplierPhoneInfo = supplierPhone.getText().toString().trim();
 
         if (currentBookUri == null && TextUtils.isEmpty(bookTitleInfo)
                 || TextUtils.isEmpty(supplierNameInfo) || TextUtils.isEmpty(supplierPhoneInfo)
@@ -112,13 +112,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            int rowsAffected = getContentResolver().update(currentBookUri, values, null, null);
             if (currentBookUri != null && TextUtils.isEmpty(bookTitleInfo)
                     || TextUtils.isEmpty(supplierNameInfo) || TextUtils.isEmpty(supplierPhoneInfo)
                     || TextUtils.isEmpty(bookPriceInfo) || TextUtils.isEmpty(quantityInfo)) {
                 Toast.makeText(this, getString(R.string.complete), Toast.LENGTH_SHORT).show();
                 return;
             }
+            int rowsAffected = getContentResolver().update(currentBookUri, values, null, null);
             if (rowsAffected == 0) {
                 Toast.makeText(this, getString(R.string.update_failed),
                         Toast.LENGTH_SHORT).show();
@@ -152,16 +152,9 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = {BooKInventoryEntry._ID,
-                BooKInventoryEntry.BOOK_NAME_COLUMN,
-                BooKInventoryEntry.BOOK_PRICE_COLUMN,
-                BooKInventoryEntry.BOOK_QUANTITY_COLUMN,
-                BooKInventoryEntry.SUPPLIER_NAME,
-                BooKInventoryEntry.SUPPLIER_PHONE};
-
         return new CursorLoader(this,
                 currentBookUri,
-                projection,
+                null,
                 null,
                 null,
                 null);

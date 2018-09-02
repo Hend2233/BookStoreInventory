@@ -23,7 +23,6 @@ public class BookCursorAdapter extends CursorAdapter {
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         return LayoutInflater.from(context).inflate(R.layout.book_list_items, parent, false);
-
     }
 
     @Override
