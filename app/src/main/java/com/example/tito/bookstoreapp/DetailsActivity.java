@@ -35,7 +35,6 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
 
         Intent intent = getIntent();
         currentBookUri = intent.getData();
-
         if (currentBookUri == null) {
             Toast.makeText(this, getString(R.string.no_details), Toast.LENGTH_SHORT).show();
         } else {
@@ -57,7 +56,6 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
                 startActivity(intent);
             }
         });
-
         increaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,7 +74,6 @@ public class DetailsActivity extends AppCompatActivity implements LoaderManager.
                 }
             }
         });
-
         decreaseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

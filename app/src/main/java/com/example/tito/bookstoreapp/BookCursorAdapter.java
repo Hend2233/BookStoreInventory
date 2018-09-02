@@ -35,7 +35,6 @@ public class BookCursorAdapter extends CursorAdapter {
         Button saleButton = (Button) view.findViewById(R.id.sale_btn);
         Button editButton = (Button) view.findViewById(R.id.edit_btn);
 
-
         int bookTitleColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_NAME_COLUMN);
         int bookPriceColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_PRICE_COLUMN);
         int bookQuantityColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_QUANTITY_COLUMN);
@@ -49,16 +48,12 @@ public class BookCursorAdapter extends CursorAdapter {
         price.setText(String.valueOf(bookPrice));
 
         final long currentId = mCursor.getLong(mCursor.getColumnIndex(BooKInventoryEntry._ID));
-
         final Uri contentUri = Uri.withAppendedPath(BooKInventoryEntry.CONTENT_URI, Long.toString(currentId));
-
         saleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView quantityT = (TextView) view.findViewById(R.id.book_quantity);
-
                 int quantity = Integer.valueOf(quantityT.getText().toString());
-
                 if (quantity == 0) {
                     Toast.makeText(context, R.string.no_0s_value, Toast.LENGTH_SHORT).show();
                     return;
@@ -68,11 +63,9 @@ public class BookCursorAdapter extends CursorAdapter {
                 }
                 ContentValues values = new ContentValues();
                 values.put(BooKInventoryEntry.BOOK_QUANTITY_COLUMN, quantity);
-
                 mContext.getContentResolver().update(contentUri, values, null, null);
             }
         });
-
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

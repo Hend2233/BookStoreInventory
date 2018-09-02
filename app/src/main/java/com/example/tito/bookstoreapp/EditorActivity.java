@@ -36,7 +36,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         setContentView(R.layout.activity_editor);
 
         Intent intent = getIntent();
-
         currentBookUri = intent.getData();
 
         if (currentBookUri == null) {
@@ -97,7 +96,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         }
 
         ContentValues values = new ContentValues();
-
         values.put(BooKInventoryEntry.BOOK_NAME_COLUMN, bookTitleInfo);
         values.put(BooKInventoryEntry.BOOK_PRICE_COLUMN, bookPriceInfo);
         values.put(BooKInventoryEntry.BOOK_QUANTITY_COLUMN, quantityInfo);
@@ -105,9 +103,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         values.put(BooKInventoryEntry.SUPPLIER_PHONE, supplierPhoneInfo);
 
         if (currentBookUri == null) {
-
             Uri newUri = getContentResolver().insert(BooKInventoryEntry.CONTENT_URI, values);
-
             if (newUri == null) {
                 Toast.makeText(this, getString(R.string.failed_insert),
                         Toast.LENGTH_SHORT).show();
@@ -117,7 +113,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
         } else {
             int rowsAffected = getContentResolver().update(currentBookUri, values, null, null);
-
+            if (currentBookUri != null && TextUtils.isEmpty(bookTitleInfo)
+                    || TextUtils.isEmpty(supplierNameInfo) || TextUtils.isEmpty(supplierPhoneInfo)
+                    || TextUtils.isEmpty(bookPriceInfo) || TextUtils.isEmpty(quantityInfo)) {
+                Toast.makeText(this, getString(R.string.complete), Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (rowsAffected == 0) {
                 Toast.makeText(this, getString(R.string.update_failed),
                         Toast.LENGTH_SHORT).show();
@@ -171,7 +172,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         if (cursor == null || cursor.getCount() < 1) {
             return;
         }
-
         if (cursor.moveToFirst()) {
             int bookTitleColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_NAME_COLUMN);
             int bookPriceColumn = cursor.getColumnIndex(BooKInventoryEntry.BOOK_PRICE_COLUMN);
@@ -190,10 +190,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             quantity.setText(String.valueOf(currentBookQuantity));
             supplierName.setText(currentSupplierName);
             supplierPhone.setText(currentSupplierPhone);
-
         }
     }
-
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         bookName.setText("");

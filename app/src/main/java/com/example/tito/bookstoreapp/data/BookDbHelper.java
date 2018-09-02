@@ -9,7 +9,6 @@ import static com.example.tito.bookstoreapp.data.BookContract.BooKInventoryEntry
 public class BookDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "inventory.db";
-
     private static final int VERSION_NUMBER = 1;
 
     public BookDbHelper(Context context) {

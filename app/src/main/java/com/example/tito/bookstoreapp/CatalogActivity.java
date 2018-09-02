@@ -40,12 +40,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 startActivity(intent);
             }
         });
-
         bookListView = (ListView) findViewById(R.id.list);
-
         bookCursorAdapter = new BookCursorAdapter(this, null);
         bookListView.setAdapter(bookCursorAdapter);
-
         View emptyView = findViewById(R.id.empty_view);
         bookListView.setEmptyView(emptyView);
 

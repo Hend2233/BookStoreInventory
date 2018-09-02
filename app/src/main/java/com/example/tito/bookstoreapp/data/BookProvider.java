@@ -25,7 +25,7 @@ public class BookProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-       bookDbHelper = new BookDbHelper(getContext());
+        bookDbHelper = new BookDbHelper(getContext());
         return true;
     }
 
@@ -33,25 +33,22 @@ public class BookProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         SQLiteDatabase database = bookDbHelper.getReadableDatabase();
         Cursor cursor;
-
         int match = uriMatcher.match(uri);
-
         switch (match) {
             case BOOKS:
                 cursor = database.query(
-                        BooKInventoryEntry.TABLE_NAME, projection, selection, selectionArgs,null, null, sortOrder);
-                        break;
+                        BooKInventoryEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
+                break;
             case BOOK_ID:
                 selection = BooKInventoryEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 cursor = database.query(
                         BooKInventoryEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
-                        break;
-                        default:
-                            throw new IllegalArgumentException("Unknown Uri" + uri);
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown Uri" + uri);
         }
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
-
         return cursor;
     }
 
@@ -65,17 +62,17 @@ public class BookProvider extends ContentProvider {
                 throw new IllegalArgumentException("Inserting is not supported for this uri " + uri);
         }
     }
+
     private Uri insertBook(Uri uri, ContentValues values) {
         String bookTitle = values.getAsString(BooKInventoryEntry.BOOK_NAME_COLUMN);
         double bookPrice = values.getAsDouble(BooKInventoryEntry.BOOK_PRICE_COLUMN);
         int bookQuantity = values.getAsInteger(BooKInventoryEntry.BOOK_QUANTITY_COLUMN);
         String supplierName = values.getAsString(BooKInventoryEntry.SUPPLIER_NAME);
         String supplierPhone = values.getAsString(BooKInventoryEntry.SUPPLIER_PHONE);
-
         if (bookTitle == null || bookTitle.length() == 0) {
             throw new IllegalArgumentException("Book need a Title");
         }
-        if (bookPrice == 0){
+        if (bookPrice == 0) {
             throw new IllegalArgumentException("Book need a Price");
         }
         if (bookQuantity == -1) {
@@ -109,10 +106,10 @@ public class BookProvider extends ContentProvider {
                 return updateBook(uri, values, selection, selectionArgs);
             case BOOK_ID:
                 selection = BooKInventoryEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 return updateBook(uri, values, selection, selectionArgs);
-                default:
-                    throw new IllegalArgumentException("Update is not supported for this uri " + uri);
+            default:
+                throw new IllegalArgumentException("Update is not supported for this uri " + uri);
         }
     }
 
@@ -125,7 +122,7 @@ public class BookProvider extends ContentProvider {
         }
         if (values.containsKey(BooKInventoryEntry.BOOK_PRICE_COLUMN)) {
             double bookPrice = values.getAsDouble(BooKInventoryEntry.BOOK_PRICE_COLUMN);
-            if (bookPrice == 0.0){
+            if (bookPrice == 0.0) {
                 throw new IllegalArgumentException("Book need a Price");
             }
         }
@@ -151,14 +148,12 @@ public class BookProvider extends ContentProvider {
         if (values.size() == 0) {
             return 0;
         }
-
         SQLiteDatabase database = bookDbHelper.getWritableDatabase();
-
-       int rowsUpdated = database.update(BooKInventoryEntry.TABLE_NAME, values, selection, selectionArgs);
-       if (rowsUpdated != 0) {
-           getContext().getContentResolver().notifyChange(uri, null);
-       }
-       return rowsUpdated;
+        int rowsUpdated = database.update(BooKInventoryEntry.TABLE_NAME, values, selection, selectionArgs);
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return rowsUpdated;
     }
 
     @Override
@@ -173,11 +168,11 @@ public class BookProvider extends ContentProvider {
                 break;
             case BOOK_ID:
                 selection = BooKInventoryEntry._ID + "=?";
-                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = database.delete(BooKInventoryEntry.TABLE_NAME, selection, selectionArgs);
                 break;
-                default:
-                    throw new IllegalArgumentException("deletion is not supported for this uri " + uri);
+            default:
+                throw new IllegalArgumentException("deletion is not supported for this uri " + uri);
         }
         if (rowsDeleted != 0) {
             getContext().getContentResolver().notifyChange(uri, null);
@@ -193,8 +188,8 @@ public class BookProvider extends ContentProvider {
                 return BooKInventoryEntry.CONTENT_LIST_TYPE;
             case BOOK_ID:
                 return BooKInventoryEntry.CONTENT_ITEM_TYPE;
-                default:
-                    throw new IllegalArgumentException("Unknown uri " + uri + " with match " + match);
+            default:
+                throw new IllegalArgumentException("Unknown uri " + uri + " with match " + match);
         }
     }
 }

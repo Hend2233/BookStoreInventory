@@ -79,7 +79,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView"/>
 
-        <Button android:id="@+id/increase"
+        <Button
+                android:id="@+id/increase"
                 android:text="@string/increase"
                 android:background="@color/colorPrimary"
                 android:textColor="#FFF"
@@ -104,7 +105,8 @@
                 android:layout_toLeftOf="@id/increase"
         />
 
-        <Button android:id="@+id/decrease"
+        <Button
+                android:id="@+id/decrease"
                 android:text="@string/decrease"
                 android:textColor="#FFF"
                 android:background="@color/colorPrimary"
